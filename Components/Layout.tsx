@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "@components/Navbar";
 
 interface ILayout {
   children: JSX.Element;
 }
 
-const Layout: React.FC = ({ children }: ILayout) => {
+const Layout: React.FC<ILayout> = ({ children }) => {
   return (
     <div>
       <Navbar />

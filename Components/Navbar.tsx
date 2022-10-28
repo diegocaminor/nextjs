@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const About = () => {
+const Navbar = () => {
   return (
     <nav>
       <menu>
@@ -12,4 +12,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Navbar;
