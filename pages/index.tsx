@@ -1,34 +1,26 @@
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import Layout from "@components/Layout/Layout";
+import KawaiiHeader from "@components/KawaiiHeader/KawaiiHeader";
+import ProductList from "@components/ProductList/ProductList";
 
-const Home = () => {
-  const [productList, setProductList] = useState([]);
+const HomePage = () => {
+  const [productList, setProductList] = useState<TProduct[]>([]);
+
   useEffect(() => {
-    window.fetch("/api/avo").then((response) =>
-      response.json().then(({ data, length }) => {
-        console.log("data!!");
-        console.log(data);
-        data.map((d) => console.log(d.name));
+    window
+      .fetch("/api/avo")
+      .then((response) => response.json())
+      .then(({ data }: TAPIAvoResponse) => {
         setProductList(data);
-      })
-    );
+      });
   }, []);
 
   return (
-    <div>
-      <h1>Hello Diego Ca!!!</h1>
-      <div>
-        {productList.map((producto) => (
-          <div>
-            <Link href={`/products/${producto.id}`}>
-              <strong>{producto.id} - </strong>
-              {producto.name}
-            </Link>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Layout>
+      <KawaiiHeader />
+      <ProductList products={productList} />
+    </Layout>
   );
 };
 
-export default Home;
+export default HomePage;

@@ -29,10 +29,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* favicon
-          webfont
-          stylesheet
-          script/js */}
+          {/** FavIcon */}
+          {/** WebFont */}
+          {/** stylesheets */}
+          {/** scripts */}
         </Head>
         <body className="diego camino">
           <Main />
